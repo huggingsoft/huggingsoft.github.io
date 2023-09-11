@@ -1,40 +1,36 @@
 # Personal Website
 
-> 描述
+> Description
 
-> 目标1 ↻: ... 
+> Goal 1 ↻: ...
 
-> 目标2: ... 
+> Goal 2: ...
 
-## 截图
+## Screenshots
 
-> ![示例图片](docs/img/img.jpg "shortcut image")
+> ![Example Image](docs/img/img.jpg "Shortcut image")
 
+## Reference Code
 
-## 参考代码
-
-> [源代码段](#)
+> [Source Code Snippet](#)
 
 ```
-
   // ...
-
-```
-## 实现代码
-
-> [参考实现代码段](#)
-
 ```
 
+## Implementation Code
+
+> [Implementation Code Snippet](#)
+
+```
   // ...
-
 ```
 
-## 引用类库
+## Used Libraries
 
-> 无
+> None
 
-## 参考资料
+## References
 
 > GITHUB.COM
 

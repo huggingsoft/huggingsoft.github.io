@@ -2,9 +2,9 @@
 
 > Description
 
-> Goal 1 ↻: ...
+> Goal 1 ↻: NavigationView
 
-> Goal 2: ...
+> Goal 2: TabView
 
 ## Screenshots
 

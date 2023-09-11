@@ -8,32 +8,17 @@
 
 ## Screenshots
 
-> ![Example Image](docs/img/img.jpg "Shortcut image")
+- ![Example Image](public/HuggingSoft192.png "Shortcut image")
 
-## Reference Code
+## Libraries
 
-> [Source Code Snippet](#)
-
-```
-  // ...
-```
-
-## Implementation Code
-
-> [Implementation Code Snippet](#)
-
-```
-  // ...
-```
-
-## Used Libraries
-
-> None
+- @fluentui/react
+- react-router-dom
+- react-responsive
 
 ## References
 
-> GITHUB.COM
-
-> SEARCH.BING.COM
-
-> SEARCH.GOOGLE.COM
+- GITHUB.COM
+- FIGMA.COM
+- SEARCH.BING.COM
+- SEARCH.GOOGLE.COM

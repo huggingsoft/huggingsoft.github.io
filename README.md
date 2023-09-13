@@ -15,6 +15,7 @@
 - @fluentui/react
 - react-router-dom
 - react-responsive
+- i18next
 
 ## References
 

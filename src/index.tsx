@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { mergeStyles } from "@fluentui/react";
 import reportWebVitals from "./reportWebVitals";
-import { NavigationView } from "./component/navigation-view/NavigationView";
+import { NavigationView } from "./components/navigation-view/NavigationView";
 import { NavigationViewRoutes } from "./router/routes";
-import { PaneDisplayMode } from "./component/navigation-view/ts/NavigationViewType";
+import { PaneDisplayMode } from "./components/navigation-view/common/Type";
 import { BrowserRouter } from "react-router-dom";
 
 // Inject some global styles
@@ -16,13 +16,44 @@ mergeStyles({
   },
 });
 
+const EntryView: React.FunctionComponent = () => {
+  const [paneDisplayMode, setPaneDisplayMode] = React.useState(
+    PaneDisplayMode.Auto
+  );
+  const handlePaneDisplayModeChange = (event: any) => {
+    const selectedMode = event.target.value;
+    setPaneDisplayMode(selectedMode);
+  };
+
+  const classes = mergeStyles({
+    position: "absolute",
+    top:  "0",
+    right: "50%",
+  });
+  return (
+    <>
+      <NavigationView
+        paneDisplayMode={paneDisplayMode}
+        menuItems={NavigationViewRoutes}
+      />
+      <select
+        className={classes}
+        title="PaneDisplayMode"
+        onChange={handlePaneDisplayModeChange}
+      >
+        <option value={PaneDisplayMode.Auto}>Auto</option>
+        <option value={PaneDisplayMode.Left}>Left</option>
+        <option value={PaneDisplayMode.LeftCompact}>LeftCompact</option>
+        <option value={PaneDisplayMode.LeftMinimal}>LeftMinimal</option>
+        <option value={PaneDisplayMode.Top}>Top</option>
+      </select>
+    </>
+  );
+};
+
 ReactDOM.render(
   <BrowserRouter>
-    <NavigationView
-      divided={true}
-      paneDisplayMode={PaneDisplayMode.Auto}
-      paneContent={NavigationViewRoutes}
-    />
+    <EntryView />
   </BrowserRouter>,
   document.getElementById("root")
 );

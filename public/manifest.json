@@ -3,17 +3,17 @@
   "name": "Hugging Soft Public",
   "icons": [
     {
-      "src":"HuggingSoft192.png",
+      "src":"192.png",
       "sizes":"192x192",
       "type":"image/png"
     },
     {
-      "src":"HuggingSoft512.png",
+      "src":"512.png",
       "sizes":"512x512",
       "type":"image/png"
     },
     {
-      "src":"HuggingSoft1024.png",
+      "src":"1024.png",
       "sizes":"1024x1024",
       "type":"image/png"
     }

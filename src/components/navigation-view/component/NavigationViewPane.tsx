@@ -17,12 +17,10 @@ const useStyles = makeStyles({
     gridTemplateColumns: "auto 1fr auto",
   },
   small: {
-    width: "0rem",
     transitionProperty: "width",
     transitionDuration: "100ms",
   },
   medium: {
-    width: "3rem",
     transitionProperty: "width",
     transitionDuration: "200ms",
   },
@@ -32,10 +30,18 @@ const useStyles = makeStyles({
   },
 });
 
-export const NavigationViewPane: React.FunctionComponent = (props) => {
+type NavigationViewPaneType = {
+  expandWidth?: number;
+};
+
+export const NavigationViewPane: React.FunctionComponent<
+  NavigationViewPaneType
+> = (props) => {
   const { displayMode, paneDisplayMode } = React.useContext(
     NavigationViewContext
   );
+  const { expandWidth = 20 } = props;
+  const [close, setClose] = React.useState(false);
   const styles = useStyles();
   const classes = mergeStyles(
     styles.root,
@@ -47,19 +53,53 @@ export const NavigationViewPane: React.FunctionComponent = (props) => {
             ? [
                 styles.large,
                 {
-                  width: `20rem`,
+                  width: `${close ? 3 : expandWidth}rem`,
                 },
               ]
             : displayMode === DisplayMode.Medium
-            ? styles.medium
-            : styles.small,
+            ? [styles.medium, { width: `3rem` }]
+            : [styles.small, { width: `0rem` }],
         ]
   );
+  const classes2 = mergeStyles(
+    styles.root,
+    paneDisplayMode === PaneDisplayMode.Top
+      ? styles.top
+      : [
+          styles.left,
+          (displayMode === DisplayMode.Medium || displayMode===DisplayMode.Small) &&
+            !close && {
+              position: "fixed",
+              height: "100%",
+              backgroundColor: "#f3f3f3",
+            },
+          displayMode === DisplayMode.Medium && [
+            styles.medium,
+            {
+              width: `${close ? 3 : expandWidth}rem`,
+            },
+          ],
+          displayMode === DisplayMode.Small && [
+            styles.small,
+            {
+              width: `${close ? 0 : expandWidth}rem`,
+            },
+          ],
+        ]
+  );
+
+  function handleClose() {
+    setClose(!close);
+  }
   return (
     <div className={classes}>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div className={classes2}>
+        <div>
+          <button onClick={handleClose}>close</button>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 };
